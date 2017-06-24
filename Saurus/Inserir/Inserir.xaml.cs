@@ -30,7 +30,7 @@ namespace Saurus.Inserir
         private void Inserirbtn_Click(object sender, RoutedEventArgs e)
         {
             try {
-                string conexao_string = "Data Source=H;Initial Catalog=Saurus_Banco;Integrated Security=True";
+                string conexao_string = "Data Source=(LocalDB)\\Saurus;AttachDbFilename=|DataDirectory|\\Saurus_BD.mdf;Integrated Security=True;Connect Timeout=30";
                 SqlConnection conexao = new SqlConnection(conexao_string);
                 // se os valores estiverem vazios
                 if ((cPFTextBox.Text == "") || (NomeTextBox.Text == "") || (data.Text == "01/01/1900"))
@@ -43,7 +43,7 @@ namespace Saurus.Inserir
                     if (Validacao.ValidaCPF.IsCpf(cPFTextBox.Text))
                     {
                         //insere os valores dos textboxs na tabela
-                        SqlCommand comando_insercao = new SqlCommand("Insert into Saurus_tabela_clientes  Values('" + cPFTextBox.Text + "','" + NomeTextBox.Text + "','" + data.Text + "')", conexao);
+                        SqlCommand comando_insercao = new SqlCommand("Insert into Cliente  Values('" + cPFTextBox.Text + "','" + NomeTextBox.Text + "','" + data.DisplayDate + "')", conexao);
                         conexao.Open();
                         comando_insercao.ExecuteNonQuery();
                         MessageBox.Show("Inserção bem sucedida", "aviso", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -64,7 +64,7 @@ namespace Saurus.Inserir
                 }
             }catch(Exception ex)
             {
-                MessageBox.Show("Dados ja cadastrados", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message);
             }
         }
 

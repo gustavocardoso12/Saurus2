@@ -9,8 +9,8 @@
       Title="Pesquisar" Height="828" Width="1344" Foreground="White" Background="#FF294747">
 
     <Page.Resources>
-        <Saurus:Saurus_BancoDataSet x:Key="saurus_BancoDataSet"/>
-        <CollectionViewSource x:Key="saurus_tabela_clientesViewSource" Source="{Binding Saurus_tabela_clientes, Source={StaticResource saurus_BancoDataSet}}"/>
+        <Saurus:Saurus_BDDataSet x:Key="saurus_BDDataSet"/>
+        <CollectionViewSource x:Key="clienteViewSource" Source="{Binding Cliente, Source={StaticResource saurus_BDDataSet}}"/>
     </Page.Resources>
 
     <Grid Background="#FF472929" Margin="0,5,0,-5">
@@ -21,17 +21,10 @@
         <RadioButton x:Name="Rbn_Data" Content="Data de Nascimento" HorizontalAlignment="Left" Margin="92,575,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontWeight="Bold" Height="54" Width="386" Style="{DynamicResource RadioButtonStyle4}" Checked="Rbn_Data_Checked"/>
         <RadioButton x:Name="Rbn_Numero" Content="Número interno" HorizontalAlignment="Left" Margin="92,216,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32" FontWeight="Bold" Height="79" Width="278" Style="{DynamicResource RadioButtonStyle1}" Checked="Rbn_Numero_Checked"/>
 
-        <Grid x:Name="grid1" DataContext="{StaticResource saurus_tabela_clientesViewSource}" HorizontalAlignment="Left" Margin="648,233,0,0" VerticalAlignment="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <TextBox x:Name="numero_internoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="55" Margin="-89,-13,0,-13" Grid.Row="0" Text="{Binding Numero_interno, Mode=OneWay}" VerticalAlignment="Center" Width="120" FontSize="32" Visibility="Hidden"/>
-        </Grid>
-        <Grid x:Name="grid3" DataContext="{StaticResource saurus_tabela_clientesViewSource}" HorizontalAlignment="Left" Margin="560,474,0,0" VerticalAlignment="Top">
+
+        <TextBox x:Name="numero_internoTextBox" HorizontalAlignment="Left" Height="54" Margin="558,216,0,558" Grid.Row="0" Text="{Binding Numero_interno, Mode=OneWay}" VerticalAlignment="Center" Width="120" FontSize="32" Visibility="Hidden"/>
+
+        <Grid x:Name="grid3" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="560,474,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -41,7 +34,7 @@
             </Grid.RowDefinitions>
             <TextBox x:Name="nomeTextBox" HorizontalAlignment="Left" Height="50" Margin="10,-18,-516,0" Grid.Row="0" Text="{Binding Nome, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="552" FontSize="32" Grid.Column="1" Visibility="Hidden"/>
         </Grid>
-        <Grid x:Name="grid4" DataContext="{StaticResource saurus_tabela_clientesViewSource}" HorizontalAlignment="Left" Margin="558,596,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid4" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="558,596,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -49,9 +42,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <DatePicker x:Name="data_NascimentoDatePicker" HorizontalAlignment="Left" Margin="10,-27,-320,10" Grid.Row="0" SelectedDate="{Binding Data_Nascimento, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Height="49" Width="434" FontSize="32" Grid.ColumnSpan="2" Visibility="Hidden"/>
+            <DatePicker  x:Name="data_NascimentoDatePicker" HorizontalAlignment="Left" Margin="10,-27,-320,10" Grid.Row="0" SelectedDate="{Binding Data_Nascimento, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Height="49" Width="434" FontSize="32" Grid.ColumnSpan="2" Visibility="Hidden"/>
         </Grid>
-        <Grid x:Name="grid2" DataContext="{StaticResource saurus_tabela_clientesViewSource}" HorizontalAlignment="Left" Margin="560,350,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="31" Width="406">
+        <Grid x:Name="grid2" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="560,350,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="31" Width="406">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

@@ -9,37 +9,48 @@
       Title="Inserir" Height="666" Width="1083" ShowsNavigationUI="True">
 
     <Page.Resources>
-        <Saurus:Saurus_BancoDataSet x:Key="saurus_BancoDataSet"/>
-        <CollectionViewSource x:Key="saurus_tabela_clientesViewSource" Source="{Binding Saurus_tabela_clientes, Source={StaticResource saurus_BancoDataSet}}"/>
+
+        <Saurus:Saurus_BDDataSet x:Key="saurus_BDDataSet"/>
+        <CollectionViewSource x:Key="clienteViewSource" Source="{Binding Cliente, Source={StaticResource saurus_BDDataSet}}"/>
     </Page.Resources>
 
     <Grid Background="#FF472929" Margin="10,0,-614,-122">
         <Label x:Name="CPF_Label" Content="CPF" HorizontalAlignment="Left" Margin="41,259,0,0" VerticalAlignment="Top" Height="61" Width="168" FontSize="32" FontWeight="Bold" Foreground="White"/>
-        <Grid x:Name="grid1" DataContext="{StaticResource saurus_tabela_clientesViewSource}" HorizontalAlignment="Left" Margin="346,170,0,0" VerticalAlignment="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-        </Grid>
-        <TextBox x:Name="cPFTextBox" HorizontalAlignment="Left" Height="46" Margin="596,267,0,475" Grid.Row="0" Text="{Binding CPF, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="354" FontSize="26.667" TextChanged="cPFTextBox_TextChanged"/>
-        <TextBox x:Name="NomeTextBox" HorizontalAlignment="Left" Height="56" Margin="596,384,0,348" Grid.Row="0" Text="{Binding CPF, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="519" FontSize="26.667"/>
+
         <Label x:Name="Nome_label" Content="Nome completo" HorizontalAlignment="Left" Margin="30,384,0,0" VerticalAlignment="Top" Height="60" Width="463" FontSize="32" FontWeight="Bold" Foreground="White"/>
-        <Grid x:Name="grid2" DataContext="{StaticResource saurus_tabela_clientesViewSource}" HorizontalAlignment="Left" Margin="688,481,0,0" VerticalAlignment="Top" Height="81" Width="366">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-        </Grid>
-        <DatePicker x:Name="data" HorizontalAlignment="Left" Margin="596,509,0,0" VerticalAlignment="Top" Height="46" Width="327" FontSize="26.667" Text="Selecione um dia" SelectedDateFormat="Short"/>
         <Label x:Name="data_nasc_label" Content="Data de Nascimento" HorizontalAlignment="Left" Margin="34,502,0,0" VerticalAlignment="Top" Height="60" Width="521" FontSize="32" FontWeight="Bold" Foreground="White"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="346,81,0,0" TextWrapping="Wrap" Text="Inserção de dados" VerticalAlignment="Top" Foreground="White" FontSize="80" FontWeight="Bold" Height="115" Width="708"/>
-        <Button x:Name="Inserirbtn" Content="Inserir" HorizontalAlignment="Left" Margin="501,615,0,0" VerticalAlignment="Top" Width="402" FontSize="40" Background="#FF2A3C91" Foreground="White" FontWeight="Bold" BorderBrush="#FF472929" Height="66" Click="Inserirbtn_Click"/>
+        <Button x:Name="Inserirbtn" Content="Inserir" HorizontalAlignment="Left" Margin="493,621,0,0" VerticalAlignment="Top" Width="402" FontSize="40" Background="#FF2A3C91" Foreground="White" FontWeight="Bold" BorderBrush="#FF472929" Height="66" Click="Inserirbtn_Click"/>
+        <Grid x:Name="grid2" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="620,276,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="cPFTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="46" Margin="6,0,-197,-17" Grid.Row="0" Text="{Binding CPF, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="317" FontSize="32"/>
+        </Grid>
+        <Grid x:Name="grid3" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="626,418,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="NomeTextBox" Grid.Column="1" HorizontalAlignment="Right" Height="59" Margin="0,-33,-384,3" Grid.Row="0" Text="{Binding Nome, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="507" FontSize="32"/>
+        </Grid>
+        <Grid x:Name="grid4" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="636,522,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <DatePicker x:Name="data" HorizontalAlignment="Left" Margin="0,-7,-277,-20" Grid.Row="0" SelectedDate="{Binding Data_Nascimento, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Height="59" Width="401" FontSize="32" Grid.ColumnSpan="2"/>
+        </Grid>
 
     </Grid>
 </Page>

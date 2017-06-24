@@ -40,8 +40,13 @@ namespace Saurus
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Saurus.Saurus_BDDataSet saurus_BDDataSet = ((Saurus.Saurus_BDDataSet)(this.FindResource("saurus_BDDataSet")));
+            // Load data into the table Cliente. You can modify this code as needed.
+            Saurus.Saurus_BDDataSetTableAdapters.ClienteTableAdapter saurus_BDDataSetClienteTableAdapter = new Saurus.Saurus_BDDataSetTableAdapters.ClienteTableAdapter();
+            saurus_BDDataSetClienteTableAdapter.Fill(saurus_BDDataSet.Cliente);
+            System.Windows.Data.CollectionViewSource clienteViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("clienteViewSource")));
+            clienteViewSource.View.MoveCurrentToFirst();
 
-          
         }
 
         private void saurus_tabela_clientesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

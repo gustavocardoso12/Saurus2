@@ -7,11 +7,12 @@
       xmlns:Saurus="clr-namespace:Saurus" x:Class="Saurus.Deletar.Deletar"
       mc:Ignorable="d"
       Title="Deletar" Height="828" Width="1344">
-
     <Page.Resources>
-        <Saurus:Saurus_BancoDataSet x:Key="saurus_BancoDataSet"/>
-        <CollectionViewSource x:Key="saurus_tabela_clientesViewSource" Source="{Binding Saurus_tabela_clientes, Source={StaticResource saurus_BancoDataSet}}"/>
+        <Saurus:Saurus_BDDataSet x:Key="saurus_BDDataSet"/>
+        <CollectionViewSource x:Key="clienteViewSource" Source="{Binding Cliente, Source={StaticResource saurus_BDDataSet}}"/>
     </Page.Resources>
+
+
 
     <Grid Background="#FF472929">
 
@@ -49,7 +50,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
         </Grid>
-        <Grid x:Name="grid1" DataContext="{StaticResource saurus_tabela_clientesViewSource}" HorizontalAlignment="Left" Margin="504,305,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="504,305,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -57,9 +58,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="cPFTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="64" Margin="-5,3,0,10" Grid.Row="0" Text="{Binding CPF, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  VerticalAlignment="Center" Width="297" FontSize="32"/>
         </Grid>
-        <Grid x:Name="grid3" DataContext="{StaticResource saurus_tabela_clientesViewSource}" HorizontalAlignment="Left" Margin="496,413,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid3" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="496,413,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -67,9 +67,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="nomeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="60" Margin="3,11,0,0" Grid.Row="0" Text="{Binding Nome, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="589" FontSize="32"/>
         </Grid>
-        <Grid x:Name="grid5" DataContext="{StaticResource saurus_tabela_clientesViewSource}" HorizontalAlignment="Left" Margin="504,525,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid5"  HorizontalAlignment="Left" Margin="504,525,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -77,9 +76,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <DatePicker x:Name="data_NascimentoDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="-4,21,0,-15" Grid.Row="0" SelectedDate="{Binding Data_Nascimento, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Height="46" Width="354" FontSize="32" VerticalAlignment="Center"/>
         </Grid>
-        <Grid x:Name="grid7" DataContext="{StaticResource saurus_tabela_clientesViewSource}" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top" Visibility="Hidden">
+        <Grid x:Name="grid7" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -89,6 +87,72 @@
             </Grid.RowDefinitions>
             <Label Content="Numero interno:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <TextBox x:Name="numero_internoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Numero_interno, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid8" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="545,330,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="grid9" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="599,471,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="grid11" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="536,404,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="grid12" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="576,544,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="grid10" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="496,332,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="cPFTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="39" Margin="4,0,-172,-10" Grid.Row="0" Text="{Binding CPF, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="294" FontSize="32"/>
+        </Grid>
+        <Grid x:Name="grid13" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="536,428,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="nomeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="46" Margin="-39,0,-181,-17" Grid.Row="0" Text="{Binding Nome, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="346" FontSize="32"/>
+        </Grid>
+        <Grid x:Name="grid14" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="572,540,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <DatePicker x:Name="data_NascimentoDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="-75,13,-163,-32" Grid.Row="0" SelectedDate="{Binding Data_Nascimento, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Height="49" Width="271" FontSize="32"/>
         </Grid>
 
     </Grid>

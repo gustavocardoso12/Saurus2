@@ -92,10 +92,10 @@
     <Compile Include="Pesquisar\Pesquisar.xaml.cs">
       <DependentUpon>Pesquisar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Saurus_BancoDataSet.Designer.cs">
+    <Compile Include="Saurus_BDDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Saurus_BancoDataSet.xsd</DependentUpon>
+      <DependentUpon>Saurus_BDDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ValidaCPF.cs" />
     <Page Include="Atualizar\atualizar.xaml">
@@ -153,16 +153,16 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Saurus_BancoDataSet.xsc">
-      <DependentUpon>Saurus_BancoDataSet.xsd</DependentUpon>
+    <None Include="Saurus_BDDataSet.xsc">
+      <DependentUpon>Saurus_BDDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Saurus_BancoDataSet.xsd">
+    <None Include="Saurus_BDDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Saurus_BancoDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>Saurus_BDDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Saurus_BancoDataSet.xss">
-      <DependentUpon>Saurus_BancoDataSet.xsd</DependentUpon>
+    <None Include="Saurus_BDDataSet.xss">
+      <DependentUpon>Saurus_BDDataSet.xsd</DependentUpon>
     </None>
     <None Include="Saurus_TemporaryKey.pfx" />
   </ItemGroup>
@@ -178,6 +178,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Saurus_BD.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Saurus_BD_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Saurus_BD.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

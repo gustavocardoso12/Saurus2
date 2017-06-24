@@ -83,9 +83,9 @@ namespace Saurus.Pesquisar
                 if (Rbn_Numero.IsChecked == true)
                 {
                     //lendo pelo número interno
-                    string conexao_string = "Data Source=H;Initial Catalog=Saurus_Banco;Integrated Security=True";
+                    string conexao_string = "Data Source=(LocalDB)\\Saurus;AttachDbFilename=|DataDirectory|\\Saurus_BD.mdf;Integrated Security=True;Connect Timeout=30";
                     SqlConnection conexao = new SqlConnection(conexao_string);
-                    string sql = "select * from Saurus_tabela_clientes where Numero_interno = @Numero_interno ";
+                    string sql = "select * from Cliente where Numero_interno = @Numero_interno ";
 
                     SqlCommand comando = new SqlCommand(sql, conexao);
                     comando.Parameters.Add(new SqlParameter("@Numero_interno", this.numero_internoTextBox.Text));
@@ -135,9 +135,9 @@ namespace Saurus.Pesquisar
                     if (Rbn_CPF.IsChecked == true)
                     {
                         //lendo pelo cpf
-                        string conexao_string = "Data Source=H;Initial Catalog=Saurus_Banco;Integrated Security=True";
+                        string conexao_string = "Data Source=(LocalDB)\\Saurus;AttachDbFilename=|DataDirectory|\\Saurus_BD.mdf;Integrated Security=True;Connect Timeout=30";
                         SqlConnection conexao_cpf = new SqlConnection(conexao_string);
-                        string sql_cpf = "select * from Saurus_tabela_clientes where CPF = @CPF";
+                        string sql_cpf = "select * from Cliente where CPF = @CPF";
 
                         SqlCommand comando_cpf = new SqlCommand(sql_cpf, conexao_cpf);
                         comando_cpf.Parameters.Add(new SqlParameter("@CPF", this.cPFTextBox.Text));
@@ -182,15 +182,19 @@ namespace Saurus.Pesquisar
                     }
                     else
                     {
+                       
+
                         if (Rbn_Data.IsChecked == true)
                         {
                             //lendo pela data
-                            string conexao_string = "Data Source=H;Initial Catalog=Saurus_Banco;Integrated Security=True";
+                            string conexao_string = "Data Source=(LocalDB)\\Saurus;AttachDbFilename=|DataDirectory|\\Saurus_BD.mdf;Integrated Security=True;Connect Timeout=30";
                             SqlConnection conexao_data = new SqlConnection(conexao_string);
-                            string sql_data = "select * from Saurus_tabela_clientes where Data_Nascimento = @Data_Nascimento ";
+                            string sql_data = "select * from Cliente where Data_Nascimento = @Data_Nascimento ";
 
                             SqlCommand comando_data = new SqlCommand(sql_data, conexao_data);
-                            comando_data.Parameters.Add(new SqlParameter("@Data_Nascimento", this.data_NascimentoDatePicker.Text));
+                            MessageBox.Show("" + data_NascimentoDatePicker.DisplayDate);
+                          
+                            comando_data.Parameters.Add(new SqlParameter("@Data_Nascimento",this.data_NascimentoDatePicker.DisplayDate));
                             conexao_data.Open();
 
                             comando_data.ExecuteNonQuery();
@@ -234,9 +238,9 @@ namespace Saurus.Pesquisar
                         else
                         {
                             //busca pelo nome
-                            string conexao_string = "Data Source=H;Initial Catalog=Saurus_Banco;Integrated Security=True";
+                            string conexao_string = "Data Source=(LocalDB)\\Saurus;AttachDbFilename=|DataDirectory|\\Saurus_BD.mdf;Integrated Security=True;Connect Timeout=30";
                             SqlConnection conexao_nome = new SqlConnection(conexao_string);
-                            string sql_nome = "select * from Saurus_tabela_clientes where Nome = @Nome ";
+                            string sql_nome = "select * from Cliente where Nome = @Nome ";
                             SqlCommand comando_nome = new SqlCommand(sql_nome, conexao_nome);
                             comando_nome.Parameters.Add(new SqlParameter("@Nome", this.nomeTextBox.Text));
                             conexao_nome.Open();
@@ -286,7 +290,7 @@ namespace Saurus.Pesquisar
                 }
             } catch (Exception ex)
             {
-                MessageBox.Show("Erro desconhecido", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
 

@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         Title="Tela principal" Height="1072" Width="1701" Icon="Imagens/saurus.png" WindowStartupLocation="CenterOwner" Topmost="True" WindowStyle="None" ResizeMode="CanResizeWithGrip" WindowState="Maximized" Loaded="Window_Loaded">
     <Window.Resources>
-        <local:Saurus_BancoDataSet x:Key="saurus_BancoDataSet"/>
-        <CollectionViewSource x:Key="saurus_tabela_clientesViewSource" Source="{Binding Saurus_tabela_clientes, Source={StaticResource saurus_BancoDataSet}}"/>
+      
+      
+        <local:Saurus_BDDataSet x:Key="saurus_BDDataSet"/>
+        <CollectionViewSource x:Key="clienteViewSource" Source="{Binding Cliente, Source={StaticResource saurus_BDDataSet}}"/>
     </Window.Resources>
-    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF472929" DataContext="{StaticResource saurus_tabela_clientesViewSource}" >
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF472929" DataContext="{StaticResource clienteViewSource}" >
         <Image x:Name="logo_saurus" Visibility="Visible" HorizontalAlignment="Left" Height="221" VerticalAlignment="Top" Width="686" Source="Imagens/saurus.png" Margin="324,283,0,0"/>
         <Frame x:Name="frame"  HorizontalAlignment="Left" Margin="0,6,0,10" VerticalAlignment="Stretch" NavigationUIVisibility="Hidden"  Content="" IsEnabled="True" Focusable="True" IsHitTestVisible="True" IsTabStop="False"/>
         <!-- Grid do menu principal -->

@@ -24,12 +24,12 @@ namespace Saurus.Deletar
         {
             InitializeComponent();
             // carregando os dados da tabela
-            Saurus.Saurus_BancoDataSet saurus_BancoDataSet = ((Saurus.Saurus_BancoDataSet)(this.FindResource("saurus_BancoDataSet")));
-            // Load data into the table Saurus_tabela_clientes. You can modify this code as needed.
-            Saurus.Saurus_BancoDataSetTableAdapters.Saurus_tabela_clientesTableAdapter saurus_BancoDataSetSaurus_tabela_clientesTableAdapter = new Saurus.Saurus_BancoDataSetTableAdapters.Saurus_tabela_clientesTableAdapter();
-            saurus_BancoDataSetSaurus_tabela_clientesTableAdapter.Fill(saurus_BancoDataSet.Saurus_tabela_clientes);
-            System.Windows.Data.CollectionViewSource saurus_tabela_clientesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("saurus_tabela_clientesViewSource")));
-            saurus_tabela_clientesViewSource.View.MoveCurrentToFirst();
+            Saurus.Saurus_BDDataSet saurus_BDDataSet = ((Saurus.Saurus_BDDataSet)(this.FindResource("saurus_BDDataSet")));
+            // Load data into the table Cliente. You can modify this code as needed.
+            Saurus.Saurus_BDDataSetTableAdapters.ClienteTableAdapter saurus_BDDataSetClienteTableAdapter = new Saurus.Saurus_BDDataSetTableAdapters.ClienteTableAdapter();
+            saurus_BDDataSetClienteTableAdapter.Fill(saurus_BDDataSet.Cliente);
+            System.Windows.Data.CollectionViewSource clienteViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("clienteViewSource")));
+            clienteViewSource.View.MoveCurrentToFirst();
         }
 
         private void Deletarbtn_Click(object sender, RoutedEventArgs e)
@@ -57,14 +57,14 @@ namespace Saurus.Deletar
 
         private void anterior_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Data.CollectionViewSource saurus_tabela_clientesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("saurus_tabela_clientesViewSource")));
-            saurus_tabela_clientesViewSource.View.MoveCurrentToPrevious();
+            System.Windows.Data.CollectionViewSource clienteViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("clienteViewSource")));
+           clienteViewSource.View.MoveCurrentToPrevious();
         }
 
         private void Proximo_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Data.CollectionViewSource saurus_tabela_clientesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("saurus_tabela_clientesViewSource")));
-            saurus_tabela_clientesViewSource.View.MoveCurrentToNext();
+            System.Windows.Data.CollectionViewSource clienteViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("clienteViewSource")));
+            clienteViewSource.View.MoveCurrentToNext();
         }
 
         private void cPFTextBox_TextChanged(object sender, TextChangedEventArgs e)

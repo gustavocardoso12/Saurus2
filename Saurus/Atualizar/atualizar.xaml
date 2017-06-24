@@ -10,12 +10,12 @@
       Title="atualizar">
 
     <Page.Resources>
-        <Saurus:Saurus_BancoDataSet x:Key="saurus_BancoDataSet"/>
-        <CollectionViewSource x:Key="saurus_tabela_clientesViewSource" Source="{Binding Saurus_tabela_clientes, Source={StaticResource saurus_BancoDataSet}}"/>
+        <Saurus:Saurus_BDDataSet x:Key="saurus_BDDataSet"/>
+        <CollectionViewSource x:Key="clienteViewSource" Source="{Binding Cliente, Source={StaticResource saurus_BDDataSet}}"/>
     </Page.Resources>
 
-    <Grid Background="#FF472929" Margin="10,0,-1242,-478" DataContext="{StaticResource saurus_tabela_clientesViewSource}" Height="778" VerticalAlignment="Top">
-        <Grid x:Name="grid1" DataContext="{StaticResource saurus_tabela_clientesViewSource}" HorizontalAlignment="Left" Margin="346,170,0,0" VerticalAlignment="Top">
+    <Grid Background="#FF472929" Margin="10,0,-1242,-478" DataContext="{StaticResource clienteViewSource}" Height="778" VerticalAlignment="Top">
+        <Grid x:Name="grid1" DataContext="{StaticResource clienteViewSource}" HorizontalAlignment="Left" Margin="346,170,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -55,7 +55,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="cPFTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="71" Margin="-176,-33,-121,-9" Grid.Row="0" Text="{Binding CPF, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="297" FontSize="32" TextChanged="cPFTextBox_TextChanged"/>
         </Grid>
         <Grid x:Name="grid4" HorizontalAlignment="Left" Margin="770,438,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
@@ -65,7 +64,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="nomeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="65" Margin="-249,-26,-340,-10" Grid.Row="0" Text="{Binding Nome, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="589" FontSize="32"/>
         </Grid>
         <Grid x:Name="grid6" HorizontalAlignment="Left" Margin="758,574,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
@@ -75,7 +73,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <DatePicker x:Name="data_NascimentoDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="-229,-28,-125,12" Grid.Row="0" SelectedDate="{Binding Data_Nascimento, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Height="46" Width="354" FontSize="32"/>
         </Grid>
         <Grid x:Name="grid7" HorizontalAlignment="Left" Margin="301,280,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
@@ -98,6 +95,36 @@
             </Grid.RowDefinitions>
             <Label Content="Numero interno:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <TextBox x:Name="numero_internoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Numero_interno, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid9" HorizontalAlignment="Left" Margin="559,310,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="cPFTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="42" Margin="-29,10,-95,-23" Grid.Row="0" Text="{Binding CPF, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="250" FontSize="32"/>
+        </Grid>
+        <Grid x:Name="grid10" HorizontalAlignment="Left" Margin="600,422,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="nomeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="56" Margin="-66,0,-177,-27" Grid.Row="0" Text="{Binding Nome, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="369" FontSize="32"/>
+        </Grid>
+        <Grid x:Name="grid11" HorizontalAlignment="Left" Margin="734,536,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <DatePicker x:Name="data_NascimentoDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="-201,13,-18,-36" Grid.Row="0" SelectedDate="{Binding Data_Nascimento, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Height="53" Width="219" FontSize="32"/>
         </Grid>
 
     </Grid>
