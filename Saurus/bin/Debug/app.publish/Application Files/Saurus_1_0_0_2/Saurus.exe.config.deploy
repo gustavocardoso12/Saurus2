@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+    </configSections>
+    <connectionStrings>
+        <add name="Saurus.Properties.Settings.Saurus_BancoConnectionString"
+            connectionString="Data Source=H;Initial Catalog=Saurus_Banco;Integrated Security=True"
+            providerName="System.Data.SqlClient" />
+        <add name="Saurus.Properties.Settings.Saurus_BDConnectionString"
+            connectionString="Data Source=(LocalDB)\Saurus;AttachDbFilename=|DataDirectory|\Saurus_BD.mdf;Integrated Security=True;Connect Timeout=30"
+            providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+</configuration>
